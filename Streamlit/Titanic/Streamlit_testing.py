@@ -16,20 +16,21 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 sns.set_palette('Set2')
-from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import train_test_split
 
 # In[12]:
 
 
 st.write("""# The EDA Shop
-(Work in Progress)
+(Work in Progress - Works best with Titanic data)
 ### By [Nirmal Ramrakhyani](https://www.linkedin.com/in/nirmal-ramrakhyani-32993a101/)
 """)
 train = st.file_uploader("Upload the data here!")
-@st.cache
+# @st.cache
 def get_data():
     # test=st.file_uploader("pick data file - test")
     return pd.read_csv(train)
+
 
 train = get_data()
 
