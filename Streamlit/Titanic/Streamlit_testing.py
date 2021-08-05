@@ -21,17 +21,22 @@ from sklearn.model_selection import train_test_split
 # In[12]:
 
 
-st.write("""# The EDA App
+st.write("""# The EDA Shop
 (Work in Progress)
 ### By [Nirmal Ramrakhyani](https://www.linkedin.com/in/nirmal-ramrakhyani-32993a101/)
 """)
 train = st.file_uploader("Upload the data here!")
-# test=st.file_uploader("pick data file - test")
+@st.cache
+def get_data():
+    # test=st.file_uploader("pick data file - test")
+    return pd.read_csv(train)
+
+train = get_data()
 
 st.write("## About the dataset")
 st.write("### Top 5 rows ")
-train = pd.read_csv(train)
-st.write(train.head())
+
+st.dataframe(train.head().style)
 st.write("### Basic Stats ")
 st.write(train.describe())
 
